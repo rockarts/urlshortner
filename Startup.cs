@@ -52,9 +52,15 @@ namespace urlshrtnr
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    name: "root",
+                    template: "",
+                    defaults: new { controller = "Home", action = "Index" }
+                );
+
+                routes.MapRoute(
                     name: "default",
                     template: "{key}",
-                    defaults: new { controller = "Home", action = "Index" }
+                    defaults: new { controller = "Shortner", action = "Index" }
                 );
             });
         }
