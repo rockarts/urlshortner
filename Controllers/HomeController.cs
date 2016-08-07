@@ -8,28 +8,20 @@ namespace urlshrtnr.Controllers
 {
     public class HomeController : Controller
     {
-        //public IActionResult Index(string key)
-        //{
-        //    ViewData["Key"] = String.Format("Your URL key is {0}", key);
-
-        //    Dictionary<string, string> urls = new Dictionary<string, string>()
-        //    {
-        //        {"liz", "http://reddit.com"}
-        //    };
-
-        //    //301 Redirect to actual URL
-        //    return RedirectPermanent(urls[key]);
-        //}
-
+        [HttpGet]
         public IActionResult Index()
         {
-            ViewData["Key"] = "The other index";
+            ViewData["Key"] = "Get";
             return View();
         }
 
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult Shorten(Url url)
         {
-            return View();
+            url.ShortenedURL = "http://test.com";
+            ViewData["Key"] = "The other index";
+            return View("Index", url);
         }
+
     }
 }

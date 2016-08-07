@@ -23,5 +23,14 @@ namespace urlshortner.Controllers
             //301 Redirect to actual URL
             return RedirectPermanent(urls[key]);
         }
+
+        [HttpPost]
+        public IActionResult Shorten(Url url)
+        {
+            throw new NotImplementedException();
+
+            //return CreatedAtRoute("GetTodo", new { id = item.Key }, item);
+        }
+
     }
 }

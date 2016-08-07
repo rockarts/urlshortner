@@ -1,1 +1,10 @@
-<h3>test @ViewData["Key"]</h3>
+<h1>@ViewData["key"]</h1>
+<h2>URL Shortner</h2>
+<h3>Steven Rockarts</h3>
+
+@model Url
+
+<form asp-controller="Shortner"  method="post">
+    URL:  <input asp-for="LongURL" />
+    <button type="submit">Shorten</button>
+</form>
