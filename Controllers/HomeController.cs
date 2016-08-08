@@ -14,14 +14,5 @@ namespace urlshrtnr.Controllers
             ViewData["Key"] = "Get";
             return View();
         }
-
-        [HttpPost]
-        public IActionResult Shorten(Url url)
-        {
-            url.ShortenedURL = "http://test.com";
-            ViewData["Key"] = "The other index";
-            return View("Index", url);
-        }
-
     }
 }

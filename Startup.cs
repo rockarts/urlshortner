@@ -28,6 +28,7 @@ namespace urlshrtnr
         {
             // Add framework services.
             services.AddMvc();
+            services.AddSingleton<IRepository, UrlRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,6 +64,11 @@ namespace urlshrtnr
                     defaults: new { controller = "Shortner", action = "Index" }
                 );
 
+                routes.MapRoute(
+                    name: "shorten",
+                    template: "",
+                    defaults: new { controller = "Shortner", action = "Shorten" }
+                );
             });
         }
 
