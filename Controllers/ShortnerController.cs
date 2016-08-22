@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNet.Mvc;
@@ -27,7 +28,7 @@ namespace urlshortner.Controllers
         {
             int key = urlList.Add(url.LongURL.ToString());
             string shortUrl = url.Encode(key);
-            ViewData["ShortUrl"] = string.Format("Your Short URL is: http://localhost/{0}",  shortUrl);
+            ViewData["ShortUrl"] = string.Format("Your Short URL is: http://localhost/{0}",  WebUtility.UrlEncode(shortUrl));
             return View("~/Views/Home/Index.cshtml");
             //return CreatedAtRoute("GetTodo", new { id = item.Key }, item);
         }
